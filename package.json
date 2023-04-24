@@ -1,0 +1,33 @@
+{
+    "name": "api-rest",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "tsx watch src/server.ts",
+        "knex": "node --no-warnings --loader tsx ./node_modules/knex/bin/cli.js",
+        "migrate:latest": "npm run knex -- migrate:latest",
+        "migrate:rollback": "npm run knex -- migrate:rollback"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^18.15.13",
+        "@typescript-eslint/eslint-plugin": "^5.59.0",
+        "@typescript-eslint/parser": "^5.59.0",
+        "eslint": "^8.39.0",
+        "eslint-config-standard-with-typescript": "^34.0.1",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-n": "^15.7.0",
+        "eslint-plugin-promise": "^6.1.1",
+        "tsx": "^3.12.6",
+        "typescript": "^5.0.4"
+    },
+    "dependencies": {
+        "dotenv": "^16.0.3",
+        "fastify": "^4.15.0",
+        "knex": "^2.4.2",
+        "sqlite3": "^5.1.6"
+    }
+}
