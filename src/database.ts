@@ -1,10 +1,11 @@
 import 'dotenv/config'
 import { Knex, knex as setupKnex } from 'knex'
+import { env } from './env'
 
 export const config: Knex.Config = {
     client: 'sqlite',
     connection: {
-        filename: process.env.DATABASE_URL as string
+        filename: env.DATABASE_URL
     },
     useNullAsDefault: true,
     migrations: {

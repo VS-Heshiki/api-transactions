@@ -1,5 +1,6 @@
 import fastify from 'fastify'
 import { knex } from './database'
+import { env } from './env'
 
 const app = fastify()
 
@@ -7,4 +8,4 @@ app.get('/hello', async () => {
     await knex('sqlite_schema').select('*')
 })
 
-app.listen({ port: 8888 }).then(() => console.log('Listening on 8888'))
+app.listen({ port: env.PORT }).then(() => console.log(`Listening on ${env.PORT}`))
