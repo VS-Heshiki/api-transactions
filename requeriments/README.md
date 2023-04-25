@@ -7,5 +7,5 @@ Functional Requirements:
 
 Business Rules:
     - [✅] A transaction can be of the credit type that adds to the total amount or debit type thats flows out of an account
-    - [❌] Must be possible identify an user between the requests
-    - [❌] The user can only view transactions which he created
+    - [✅] Must be possible identify an user between the requests
+    - [✅] The user can only view transactions which he created
