@@ -4,6 +4,23 @@ import { randomUUID } from 'node:crypto'
 import { z } from 'zod'
 
 export async function transactionsRoutes (app: FastifyInstance): Promise<void> {
+    app.get('/', async () => {
+        const transaction = await knex('transactions').select()
+        return { transaction }
+    })
+
+    app.get('/:id', async (request) => {
+        const transactionParamId = z.object({
+            id: z.string().uuid()
+        })
+
+        const { id } = transactionParamId.parse(request.params)
+
+        const transaction = await knex('transactions').where({ id }).first()
+
+        return { transaction }
+    })
+
     app.post('/', async (request, reply) => {
         const transactionData = z.object({
             title: z.string(),
