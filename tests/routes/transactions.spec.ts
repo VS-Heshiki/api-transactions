@@ -25,4 +25,26 @@ describe('Route /transactions', () => {
             expect(response.statusCode).toBe(201)
         })
     })
+
+
+    describe('/GET', () => {
+        it('should list all transactions', async () => {
+            const responseCreateTransaction = await request(app.server)
+                .post('/transactions')
+                .send({
+                    title: 'new transaction',
+                    amount: 120,
+                    type: 'debit'
+                })
+
+            const cookie = responseCreateTransaction.get('Set-Cookie')
+
+            const response = await request(app.server)
+                .get('/transactions')
+                .set({ cookie })
+
+            expect(response.statusCode).toBe(200)
+            expect(response.body.transaction[0]).toBeTruthy()
+        })
+    })
 })
