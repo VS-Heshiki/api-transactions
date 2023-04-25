@@ -1,4 +1,4 @@
 node_modules
+src/temp/app.sqlite
 
-temp/app.sqlite
 .env

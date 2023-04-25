@@ -1,8 +1,9 @@
+import { knex } from '@/database'
+import { checkSessionId } from '@/middlewares/check-session-id'
+
 import { FastifyInstance } from 'fastify'
-import { knex } from '../database'
 import { randomUUID } from 'node:crypto'
 import { z } from 'zod'
-import { checkSessionId } from '../middlewares/check-session-id'
 
 export async function transactionsRoutes (app: FastifyInstance): Promise<void> {
 

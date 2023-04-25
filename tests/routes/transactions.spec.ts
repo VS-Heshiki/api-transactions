@@ -1,16 +1,17 @@
+import { app } from '@/app'
+
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import request from 'supertest'
-import { app } from '../src/app'
 
-beforeAll(async () => {
-    await app.ready()
-})
+describe('Route /transactions', () => {
+    beforeAll(async () => {
+        await app.ready()
+    })
 
-afterAll(async () => {
-    await app.close()
-})
+    afterAll(async () => {
+        await app.close()
+    })
 
-describe('Route /transaction', () => {
     describe('/POST', () => {
         it('should create a new transaction', async () => {
             const response = await request(app.server)
