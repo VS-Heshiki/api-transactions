@@ -3,12 +3,16 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "engines": {
+        "node": "19.*"
+    },
     "scripts": {
         "dev": "tsx watch src/server.ts",
         "knex": "node --no-warnings --loader tsx ./node_modules/knex/bin/cli.js",
         "migrate:latest": "npm run knex -- migrate:latest",
         "migrate:rollback": "npm run knex -- migrate:rollback",
-        "test": "vitest -c ./vite.config.ts --passWithNoTests"
+        "test": "vitest -c ./vite.config.ts --passWithNoTests",
+        "build": "rimraf dist && tsc -p tsconfig-build.json"
     },
     "keywords": [],
     "author": "",
@@ -21,8 +25,9 @@
         "eslint": "^8.41.0",
         "eslint-config-standard-with-typescript": "^34.0.1",
         "eslint-plugin-import": "^2.27.5",
-        "eslint-plugin-n": "^16.0.0",
+        "eslint-plugin-n": "^15.7.0",
         "eslint-plugin-promise": "^6.1.1",
+        "sqlite3": "^5.1.6",
         "supertest": "^6.3.3",
         "tsx": "^3.12.7",
         "typescript": "^5.0.4",
@@ -33,7 +38,11 @@
         "dotenv": "^16.0.3",
         "fastify": "^4.17.0",
         "knex": "^2.4.2",
-        "sqlite3": "^5.1.6",
+        "module-alias": "^2.2.2",
+        "pg": "^8.11.0",
         "zod": "^3.21.4"
+    },
+    "_moduleAliases": {
+        "@": "dist"
     }
 }
