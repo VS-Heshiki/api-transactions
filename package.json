@@ -27,6 +27,7 @@
         "eslint-plugin-import": "^2.27.5",
         "eslint-plugin-n": "^15.7.0",
         "eslint-plugin-promise": "^6.1.1",
+        "rimraf": "^5.0.1",
         "sqlite3": "^5.1.6",
         "supertest": "^6.3.3",
         "tsx": "^3.12.7",
